@@ -4,7 +4,7 @@
   "description": "",
   "main": "db.js",
   "scripts": {
-    "watch": "nodemon db.js",
+    "watch": "start nodemon db --ignore frontend-js --ignore public/ && start webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node db.js"
   },
@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "babel-loader": "^8.1.0",
     "bcryptjs": "^2.4.3",
     "connect-mongo": "^3.2.0",
     "ejs": "^3.0.1",
@@ -19,6 +22,8 @@
     "express-session": "^1.17.0",
     "mongodb": "^3.5.4",
     "nodemon": "^2.0.2",
-    "validator": "^12.2.0"
+    "validator": "^12.2.0",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
