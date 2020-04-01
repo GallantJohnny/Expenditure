@@ -1,6 +1,237 @@
 html, body {
     width: 100%;
+    font-family: sans-serif;
 }
 
-body {
+.flex-display-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-display-around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.flex-display-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flexflow-column {
+    flex-flow: column;
+}
+
+.width-75 {
+    width: 75%;
+}
+
+.width-25 {
+    width: 25%;
+}
+
+.mg-top-5 {
+    margin-top: 5px;
+}
+
+.mg-top-15 {
+    margin-top: 15px;
+}
+
+.mg-top-30 {
+    margin-top: 30px;
+}
+
+.mg-top-50 {
+    margin-top: 50px;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+.font-light {
+    color: rgb(185, 185, 185);
+}
+
+.font-dark {
+    color: rgb(34, 34, 34);
+}
+
+.font-s {
+    font-size: 0.8em;
+}
+
+.font-m {
+    font-size: 1.2em;
+}
+
+.font-l {
+    font-size: 1.8em;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.bc-dark {
+    background-color: rgb(34, 34, 34);
+}
+
+.bc-light {
+    background-color: rgb(185, 185, 185);
+}
+
+.errors {
+    box-sizing: border-box;
+    margin: 10px 0 10px 0;
+    line-height: 40px;
+    padding-left: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(255, 130, 130);
+    box-shadow: 0 0 14px 1px rgba(116, 58, 58, 0.432);
+    border-radius: 4px;
+}
+
+.success {
+    box-sizing: border-box;
+    margin: 10px 0 10px 0;
+    line-height: 40px;
+    padding-left: 10px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(134, 255, 130);
+    box-shadow: 0 0 14px 1px rgba(63, 116, 58, 0.432);
+    border-radius: 4px;
+}
+
+.cost-item {
+    height: 40px;
+    box-sizing: border-box;
+    border-bottom: solid 1px rgb(190, 212, 167);
+    padding: 5px;
+    background-color: rgb(207, 252, 157);
+}
+
+.costs-container {
+    overflow: hidden;
+    margin: 10px 0 10px 0;
+    border-radius: 5px;
+    border: solid 1px rgb(88, 88, 88);
+    box-shadow: 0 0 2px 1px rgb(216, 216, 216);
+}
+
+.cost-title, .cost, .cost-currency {
+    height: 100%;
+    line-height: 30px;
+}
+
+.cost-title {
+    width: 50%;
+}
+
+.cost {
+    width: 30%;
+    text-align: right;
+}
+
+.cost-currency {
+    width: 20%;
+    text-align: center;
+}
+
+.nav-item {
+    height: 50px;
+    line-height: 50px;
+    width: 100px;
+}
+
+.nav-item:hover {
+    background-color: rgb(185, 185, 185);
+    color: rgb(34, 34, 34);
+}
+
+.total-spent {
+    background-color: rgb(243, 171, 171);
+}
+
+.budget {
+    background-color: rgb(252, 228, 150);
+}
+
+.label-container {
+    justify-content: space-between;
+    margin: 5px 0 0 0;
+    padding: 0 5px 0 5px;
+}
+
+.change-week {
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #000;
+    box-shadow: 0 0 10px 1px gray;
+}
+
+.inputs-container {
+}
+
+/* Tags default */
+nav {
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    box-shadow: 0 0 5px 1px grey;
+    top: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+h1 {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 20px 0 20px 0;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+}
+
+button {
+    cursor: pointer;
+    margin: 20px 0 5px 0;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+input {
+    height: 25px;
+    margin: 5px 0 5px 0;
+    padding: 5px 5px 5px 20px;
+    border: 1px solid rgb(34, 34, 34);
+    border-radius: 4px;
+    font-size: 1.2em;   
+}
+
+label {
+    margin-top: 15px;
+}
+
+input::placeholder {
+    opacity: 0.8;
+    color: rgb(185, 185, 185);
+}
+
+select {
+    margin: 5px 5px 5px 10px;
+    padding: 5px 5px 5px 5px;
 }

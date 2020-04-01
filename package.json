@@ -1,20 +1,24 @@
 {
-  "name": "Expenditure",
+  "name": "expenditure",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "db.js",
   "scripts": {
-    "watch": "nodemon db",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon db.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node db.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "connect-mongo": "^3.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "express-session": "^1.17.0",
     "mongodb": "^3.5.4",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "validator": "^12.2.0"
   }
 }

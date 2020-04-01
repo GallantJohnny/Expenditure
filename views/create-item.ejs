@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="/reset.css">
+    <link type="text/css" rel="stylesheet" href="/main.css">
+    <link type="text/css" rel="stylesheet" href="/signin.css">
+</header>
+
+<body class="flex-display-center mg-top-50">
+
+    <%- include('includes/nav')%>
+
+    <main class="signin-container flex-display-center mg-top-50 flexflow-column">
+        <% message.errors.forEach(function(e){ %>
+            <div class="errors"><%= e %></div>
+        <% }) %>
+        <% if(message.success) {%>
+            <div class="success"><%= message.success %></div>
+        <%}%>
+        <h1>Create a new item</h1>
+        <form action="/create-item" method="POST" class="flex-display-center flexflow-column">
+            <label for="title">Title</label>
+            <input name="title" type="text">
+            <div class="flex-display-center label-container">
+                <label for="ammount">Spent Ammount</label>
+                <label for="currency">Currency</label>
+            </div>
+            <div class="flex-display-center inputs-container">
+                <input class="width-75" name="ammount" type="number">
+                <select class="width-25" name="currency">
+                    <option value="HUF">HUF</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                </select>
+            </div>
+            <label for="date">Transaction's date</label>
+            <input name="date" type="date">
+            <button class="font-m font-bold">Create</button>
+        </form>
+    </main>
+</body>
+
+</html>

@@ -12,17 +12,19 @@
 <body class="flex-display-center mg-top-50">
 
     <main class="signin-container">
-        <form action="/login" method="POST" id="signin-form" class="flex-display-center flexflow-column">
-            <% if(error) { %>
-                <div class="errors"><%= error %></div>
-            <% } %>
-            <h3>Sign-in</h3>
+        <form action="/register" method="POST" name="register" id="register" class="flex-display-center flexflow-column">
+            <% regErrors.forEach(function(e){ %>
+                <div class="errors"><%= e %></div>
+            <% }) %>
+            <h1>Register</h1>
+            <p>E-mail:</p>
             <input autocomplete="off" name="email" id="email" type="text" placeholder="E-mail">
+            <p class="mg-top-30">Password:</p>
             <input autocomplete="off" name="password" id="password" type="password" placeholder="Password">
-            <button id="signin" class="bc-dark font-light font-m">Sign-in</button>
-        </form>
-        <form action="/register" method="GET" id="register" class="flex-display-center flexflow-column">
+            <p>Confirm Password:</p>
+            <input autocomplete="off" name="passwordConfm" id="password-confm" type="password" placeholder="Confirm Password">
             <button id="register-page" class="bc-ligh font-dark font-m">Register</button>
+            <a href="/" class="mg-top-5 font-s"> - Back to Sign-in</a>
         </form>
     </main>
 </body>
