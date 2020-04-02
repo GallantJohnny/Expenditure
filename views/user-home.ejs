@@ -20,26 +20,17 @@
             <h3>2020.03.16. - 2020.03.22.</h3>
             <h3 class="change-week font-light text-align-center">></h3>
         </div>
-        <section>
+        <div class="lds-circle flex-display-center mg-top-50"><div></div></div>
+        <section class="display-none">
             <ul class="costs-container">
                 <li class="flex-display-center cost-items-title bc-dark">
                     <h3 class="font-light">Items</h3>
                 </li>
-                <% if(expenses) {%>
-                <% expenses.forEach( function (expense) { %>
-                <li class="flex-display-center cost-item">
-                    <div class="cost-title"><%= expense.title %></div>
-                    <div class="cost"><%= expense.ammount %></div>
-                    <div class="cost-currency"><%= expense.currency %></div>
-                </li>
-                <% })} else { %>
-                <li>No expenses here...</li>
-                <% } %>
             </ul>
             <h3></h3>
             <div class="costs-container flex-display-center cost-item total-spent">
                 <div class="cost-title">Total spent</div>
-                <div class="cost"><%= spent %></div>
+                <div id="total-spent" class="cost"></div>
                 <div class="cost-currency">HUF</div>
             </div>
             <h3></h3>
@@ -51,7 +42,7 @@
             <h3></h3>
             <div class="costs-container flex-display-center cost-item remaining font-bold">
                 <div class="cost-title">Remaining</div>
-                <div class="cost"><%= remaining %></div>
+                <div id="remaining" class="cost"></div>
                 <div class="cost-currency">HUF</div>
             </div>
         </section>

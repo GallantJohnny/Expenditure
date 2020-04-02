@@ -29,7 +29,7 @@ Expense.prototype.create = function () {
                 ammount: this.data.ammount,
                 currency: this.data.currency,
                 date: date,
-                weekMumber: weekNumber
+                weekNumber: weekNumber
             }).then(() => {
                 this.message.success = "Item created successfully!";
                 resolve(this.message);
@@ -61,11 +61,16 @@ Expense.queryExpensesByWeekNumber = function (date, owner) {
         ];
 
         let allExpenses = await expensesCollection.aggregate(aggOperations).toArray();
-        console.log(allExpenses);
 
         allExpenses.forEach(expense => {
-            if (weekNumber === expense.weekMumber) {
-                expenses.push(expense);
+            if (weekNumber === expense.weekNumber) {
+                expenses.push({
+                    title: expense.title,
+                    ammount: expense.ammount,
+                    currency: expense.currency,
+                    date: expense.date,
+                    weekNumber: expense.weekNumber
+                });
             }
         });
 
@@ -80,6 +85,7 @@ Expense.queryExpensesByWeekNumber = function (date, owner) {
             expense.ammount = this.toCurrencyStyle(expense.ammount);
         })
 
+        console.log(returnArray);
         resolve(returnArray);
     });
 }

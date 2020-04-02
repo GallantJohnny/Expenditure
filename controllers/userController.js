@@ -2,16 +2,10 @@ const User = require('../models/User');
 const Expense = require('../models/Expense');
 
 exports.home = function (req, res) {
-    if(req.session.user){
-        Expense.queryExpensesByWeekNumber(new Date(), req.session.user._id).then((returnArray) => {
-            res.render('user-home', {expenses: returnArray[0], spent: returnArray[1], remaining: returnArray[2]});
-        }).catch(() => {
-            res.render('user-home', {expenses: [], spent: [], remaining: []});
-        });
-
-        
+    if (req.session.user) {
+        res.render('user-home');
     } else {
-        res.render('home', {error: ""});
+        res.render('home', { error: "" });
     }
 }
 
@@ -19,8 +13,8 @@ exports.register = function (req, res) {
     if (req.body.password === req.body.passwordConfm) {
         let newUser = new User(req.body);
         newUser.register().then(() => {
-            req.session.user = {email: newUser.data.email, _id: newUser.data._id};
-            req.session.save(function (){
+            req.session.user = { email: newUser.data.email, _id: newUser.data._id };
+            req.session.save(function () {
                 res.redirect('/');
             });
         }).catch(e => {
@@ -34,12 +28,12 @@ exports.register = function (req, res) {
 exports.login = function (req, res) {
     let user = new User(req.body);
     user.login().then(() => {
-        req.session.user = {email: user.data.email, _id: user.data._id};
-        req.session.save(function (){
+        req.session.user = { email: user.data.email, _id: user.data._id };
+        req.session.save(function () {
             res.redirect('/');
         });
     }).catch((e) => {
-        res.render('home', {error: e});
+        res.render('home', { error: e });
     });
 }
 
