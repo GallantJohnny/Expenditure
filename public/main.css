@@ -46,6 +46,10 @@ html, body {
     margin-top: 50px;
 }
 
+.padding-15 {
+    padding: 15px;
+}
+
 .text-align-center {
     text-align: center;
 }
@@ -174,6 +178,12 @@ html, body {
     border-radius: 50%;
     background-color: #000;
     box-shadow: 0 0 10px 1px gray;
+}
+
+.disabled {
+    cursor: not-allowed;
+    background-color: rgb(83, 83, 83);
+    box-shadow: 0 0 10px 1px rgb(187, 187, 187);;
 }
 
 .inputs-container {
