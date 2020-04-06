@@ -15,6 +15,7 @@ export default class ChangeDate {
         this.addEvents();
         this.handleLoadingIcon();
         this.renderCosts(new Date());
+        this.returnClosestMonday(new Date(2020, 3, 12));
     }
 
     // Events
@@ -30,7 +31,6 @@ export default class ChangeDate {
             axios.post(`/fetchExpenses`, { date: date }).then((response) => {
                 this.costsContainer.innerHTML = "";
                 expenses = response.data[0];
-                console.log(expenses);
                 if (expenses.length) {
                     expenses.forEach((expense) => {
                         this.costsContainer.insertAdjacentHTML('beforeend', `
@@ -74,8 +74,7 @@ export default class ChangeDate {
         }
     }
 
-    renderNextWeek(a) {
-        console.log(a);
+    renderNextWeek() {
         this.isLoading = true;
         this.changeDateToggleBtnState();
         this.handleLoadingIcon();
@@ -133,8 +132,17 @@ export default class ChangeDate {
         const oneDay = 24 * 60 * 60 * 1000;
         let newDate = new Date(date);
 
+        if(newDate.getDay() === 0){
+            newDate = new Date(newDate.valueOf() - (6 * oneDay));
+        }
+
         while (newDate.getDay() !== 1){
             newDate = new Date(newDate.valueOf() - oneDay);
         }
+
+        this.startDate.innerText = this.returnFormattedDate(newDate);
+        this.endDate.innerText = this.returnFormattedDate(new Date(newDate.valueOf() + (7 * oneDay)));
+
+        return newDate;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
     }
 }
