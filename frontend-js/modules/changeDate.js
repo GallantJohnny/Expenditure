@@ -41,11 +41,12 @@ export default class ChangeDate {
                         </li>
                 `)
                     });
-                    this.totalSpent.innerText = response.data[1];
-                    this.remaining.innerText = response.data[2];
                 } else {
                     this.costsContainer.insertAdjacentHTML('beforeend', '<li class="padding-15"> No expenses this week. </li>');
                 }
+
+                this.totalSpent.innerText = response.data[1];
+                this.remaining.innerText = response.data[2];
 
                 this.isLoading = false;
                 this.changeDateToggleBtnState();
@@ -132,17 +133,17 @@ export default class ChangeDate {
         const oneDay = 24 * 60 * 60 * 1000;
         let newDate = new Date(date);
 
-        if(newDate.getDay() === 0){
+        if (newDate.getDay() === 0) {
             newDate = new Date(newDate.valueOf() - (6 * oneDay));
         }
 
-        while (newDate.getDay() !== 1){
+        while (newDate.getDay() !== 1) {
             newDate = new Date(newDate.valueOf() - oneDay);
         }
 
         this.startDate.innerText = this.returnFormattedDate(newDate);
         this.endDate.innerText = this.returnFormattedDate(new Date(newDate.valueOf() + (7 * oneDay)));
 
-        return newDate;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        return newDate;
     }
 }
