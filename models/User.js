@@ -60,4 +60,10 @@ User.prototype.register = function () {
     })
 }
 
+/*User.prototype.showProfile = function () {
+    return new Promise((resolve, reject) => {
+        usersCollection.findOne
+    })
+}*/
+
 module.exports = User;

@@ -30,7 +30,7 @@ exports.login = function (req, res) {
     user.login().then(() => {
         req.session.user = { email: user.data.email, _id: user.data._id };
         req.session.save(function () {
-            res.redirect('/');
+            res.redirect('/dashboard');
         });
     }).catch((e) => {
         res.render('home', { error: e });
@@ -41,6 +41,11 @@ exports.logout = function (req, res) {
     req.session.destroy(function () {
         res.redirect('/');
     });
+}
+
+exports.profile = function (req, res) {
+    console.log(req.session.user);
+    let user = new User(req.session.user);
 }
 
 exports.userExpenses = function (req, res) {

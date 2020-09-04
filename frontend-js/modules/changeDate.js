@@ -15,7 +15,7 @@ export default class ChangeDate {
         this.addEvents();
         this.handleLoadingIcon();
         this.renderCosts(new Date());
-        this.returnClosestMonday(new Date(2020, 3, 12));
+        this.returnClosestMonday(new Date());
     }
 
     // Events
